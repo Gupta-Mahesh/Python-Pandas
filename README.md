@@ -10,3 +10,6 @@ Import the pandas
 Check version
     print("Pandas version: ",pd.__version__)       
          Pandas version:  2.1.0
+
+#Numpy to pandas series
+lst_num = np.random.randint(10,50,20)
