@@ -22,7 +22,6 @@ In this repository, I'm going to do practice on Pandas library.
             3     47
             4     35
 
-<<<<<<< HEAD
     # Giving index from own
     print("Giving index by self")
     print(pd.Series(index=["A","B","c","d"],data=[1,2,3,4]))
@@ -123,9 +122,4 @@ In this repository, I'm going to do practice on Pandas library.
     # Convert pd to list
     print("Pandas series to List",str_series1.to_list())
         Pandas series to List ['Rain@is@happening', "I'm in Hyderabad", 'rain happening from morning']
-=======
-#giving index from own
-print("Giving index by self")
-print(pd.Series(index=["A","B","c","d"],data=[1,2,3,4]))
-print(pd.Series(index=[1,2,3,4],data=["A","B","c","d"]))
->>>>>>> 037bc21ee4b446b11947b299025996082004bff1
+
