@@ -13,3 +13,4 @@ Check version
 
 #Numpy to pandas series
 lst_num = np.random.randint(10,50,20)
+
