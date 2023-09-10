@@ -14,3 +14,7 @@ Check version
 #Numpy to pandas series
 lst_num = np.random.randint(10,50,20)
 
+#giving index from own
+print("Giving index by self")
+print(pd.Series(index=["A","B","c","d"],data=[1,2,3,4]))
+print(pd.Series(index=[1,2,3,4],data=["A","B","c","d"]))
