@@ -57,12 +57,16 @@ print(df_dict1.iloc[[0,2],[1,2]])
 num_df = pd.DataFrame(data=[10,22,32,24,65,55,75,85,95,102,115],columns=["num"])
 print(num_df.loc[num_df["num"]>24])
 
+
+# Creating a new data frame
 list_df =[[10,22,32],[55,75,85],[54,65,77],[12,32,65]]
 num_df1 = pd.DataFrame(list_df,columns=["num1","num2","num3"])
 print("Complete data frame")
 print(num_df1)
+
+# Checking condition if col num1 >10 print num1 and num2 col values
 print("Data frame after condition")
-print(num_df1.loc[num_df1["num1"]>10, ["num1", "num2"]])            #checking condition if col num1 >10 print num1 and num2 col values
+print(num_df1.loc[num_df1["num1"]>10, ["num1", "num2"]])            
 
 
 #Adding the column in data frame
@@ -100,3 +104,83 @@ print(temp_df)
 print("Droping column num2 and num4")
 temp_df = temp_df.drop(["num2","num4"],axis=1)
 print(temp_df)
+
+
+# Transpose function
+# It will transfer the col name to row and rows num to col
+
+#Creating dic
+data_dic = {"One":[95,98,49,49,48],
+            "Two":[88,96,70,49,44],
+            "Three":[91,40,82,10,31],
+            "Four":[88,96,70,49,43],
+            "Five":[99,36,90,35,32]}
+
+#converting dict to dataframe
+data_frame2 = pd.DataFrame(data_dic)
+print(data_frame2)
+print("Transpose:\n",data_frame2.T)
+
+# axes 
+print("Transpose:\n",data_frame2.axes)
+
+#ndim
+print("ndim:\n",data_frame2.ndim)
+
+#dtypes
+print("dtype:\n",data_frame2.dtypes)
+
+#shape
+print("shape:\n",data_frame2.shape)
+
+#head
+print("Head:\n",data_frame2.head(2))
+
+#tail
+print("Tail:\n",data_frame2.tail(2))
+
+#empty
+print("Empty:\n",data_frame2.empty)
+
+# Statical function
+
+#sum
+print("Sum:\n",data_frame2.sum())
+
+#mean
+print("Mean:\n",data_frame2.mean())
+
+#median
+print("Median:\n",data_frame2.median())
+
+#mode
+print("Mode of Col One:\n",data_frame2["One"].mode())
+
+#variance
+print("Variance:\n",data_frame2.var())
+
+#min
+print("Min:\n",data_frame2.min())
+
+#max
+print("Max:\n",data_frame2.max())
+
+#Standard Deviation
+print("STD:\n",data_frame2.std())
+
+#Describe Function
+
+print("Describe:\n",data_frame2.describe())
+
+# Pipe function
+dict_pipe_df = {
+    "One":[1,2,3,4],
+    "two":[11,12,13,14],
+    "three":[21,22,23,24]
+}
+pipe_df = pd.DataFrame(dict_pipe_df)
+
+def add_(a,b):
+    return a+b
+
+pipe_df.pipe(add_,10).pipe(pow,2)

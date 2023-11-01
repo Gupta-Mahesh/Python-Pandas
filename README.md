@@ -305,3 +305,138 @@ In this repository, Practice on the Pandas library.
             2      2    54    85    64
             3      3    12    99    22
 
+   # Transpose function
+    # It will transfer the col name to row and rows num to col
+
+        #Creating dic
+        data_dic = {"One":[95,98,49,49,48],
+                    "Two":[88,96,70,49,44],
+                    "Three":[91,40,82,10,31],
+                    "Four":[88,96,70,49,43],
+                    "Five":[99,36,90,35,32]}
+
+        # converting dict to dataframe
+        data_frame2 = pd.DataFrame(data_dic)
+        data_frame2
+                One	    Two	    Three	Four	Five
+            0	95	    88	    91	    88	    99
+            1	98	    96	    40	    96	    36
+            2	49	    70	    82	    70	    90
+            3	49	    49	    10	    49	    35
+            4	48	    44	    31	    43	    32
+            
+        data_frame2.T
+                    0	1	2	3	4
+            One	    95	98	49	49	48
+            Two	    88	96	70	49	44
+            Three	91	40	82	10	31
+            Four	88	96	70	49	43
+            Five	99	36	90	35	32
+   # DataFrame Functionalities
+
+    # axes
+        The “axes” is an attribute of the pandas DataFrame, this attribute is used to access the group of rows and columns labels of the given DataFrame. It will return a python list representing the axes of the DataFrame.
+
+        data_frame2.axes
+            [RangeIndex(start=0, stop=5, step=1),
+            Index(['One', 'Two', 'Three', 'Four', 'Five'], dtype='object')]
+
+    #ndim
+        The ndim property is used to get an int representing the number of axes/array dimensions and Return 1 if Series. Otherwise, return 2 if DataFrame.
+
+        data_frame2.ndim
+            Output: 2
+    #dtypes
+        Return datatype of dataframe
+        data_frame2.dtypes
+            Output:
+                One      int64
+                Two      int64
+                Three    int64
+                Four     int64
+                Five     int64
+                dtype: object
+
+    #shape
+        data_frame2.shape
+            (5, 5)
+    #head
+        Return head rows (default is 5)
+        data_frame2.head(2)
+    	            One	Two	Three	Four	Five
+                0	95	88	91	    88	    99
+                1	98	96	40	    96	    36
+
+    #tail
+        Return last rows, default =5
+        data_frame2.tail(2)
+            One	Two	Three	Four	Five
+        3	49	49	10	    49  	35
+        4	48	44	31	    43	    32        
+    #empty
+        It will check df is empty or not
+        data_frame2.empty
+   
+   # Statical function
+
+        #sum
+        print("Sum:\n",data_frame2.sum())
+
+        #mean
+        print("Mean:\n",data_frame2.mean())
+
+        #median
+        print("Median:\n",data_frame2.median())
+
+        #mode
+        print("Mode of Col One:\n",data_frame2["One"].mode())
+
+        #variance
+        print("Variance:\n",data_frame2.var())
+
+        #min
+        print("Min:\n",data_frame2.min())
+
+        #max
+        print("Max:\n",data_frame2.max())
+
+        #Standard Deviation
+        print("STD:\n",data_frame2.std())
+
+    # Describe
+        The describe() method displays a statistical summary of the data that consists of the mean, the standard deviation, the minimum and maximum value, and so on.
+        
+        print("Describe:\n",data_frame2.describe())
+
+            Describe:
+                                One        Two      Three      Four      Five
+                    count   5.000000   5.000000   5.000000   5.00000   5.00000
+                    mean   67.800000  69.400000  50.800000  69.20000  58.40000
+                    std    26.224035  22.995652  34.506521  23.27445  33.14061
+                    min    48.000000  44.000000  10.000000  43.00000  32.00000
+                    25%    49.000000  49.000000  31.000000  49.00000  35.00000
+                    50%    49.000000  70.000000  40.000000  70.00000  36.00000
+                    75%    95.000000  88.000000  82.000000  88.00000  90.00000
+                    max    98.000000  96.000000  91.000000  96.00000  99.00000
+    
+    # Pipe function
+        To apply 1 or more function in dataframe
+        dict_pipe_df = {
+            "One":[1,2,3,4],
+            "two":[11,12,13,14],
+            "three":[21,22,23,24]
+        }
+        pipe_df = pd.DataFrame(dict_pipe_df)
+
+        def add_(a,b):
+            return a+b
+
+        pipe_df.pipe(add_,10).pipe(pow,2)
+                Here add_ by default fisr value a value is taking from dataframe.
+                
+                    One	two	three
+                0	121	441	961
+                1	144	484	1024
+                2	169	529	1089
+                3	196	576	1156
+    
